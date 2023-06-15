@@ -1,0 +1,29 @@
+﻿<Window x:Class="Cryptocurrencies.Views.Cryptocurrency"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cryptocurrencies.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Rank"></TextBlock>
+            <TextBlock Text="{Binding Rank}"></TextBlock>
+            <TextBlock Text="Symbol"></TextBlock>
+            <TextBlock Text="{Binding Symbol}"></TextBlock>
+            <TextBlock Text="Supply"></TextBlock>
+            <TextBlock Text="{Binding Supply}"></TextBlock>
+            <TextBlock Text="Price USD"></TextBlock>
+            <TextBlock Text="{Binding PriceUsd}"></TextBlock>
+            <TextBlock Text="Market Cap USD"></TextBlock>
+            <TextBlock Text="{Binding MarketCapUsd}"></TextBlock>
+            <TextBlock Text="Volume USD (24 Hr)"></TextBlock>
+            <TextBlock Text="{Binding VolumeUsd24Hr}"></TextBlock>
+            <TextBlock Text="VWAP (24 Hr)"></TextBlock>
+            <TextBlock Text="{Binding VWAP24Hr}"></TextBlock>
+            <TextBlock Text="Change Percent (24 Hr)"></TextBlock>
+            <TextBlock Text="{Binding ChangePercent24Hr}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

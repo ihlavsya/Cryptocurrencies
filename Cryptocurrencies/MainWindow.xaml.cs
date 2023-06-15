@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cryptocurrencies.API.Cryptocurrencies;
+using Cryptocurrencies.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,12 @@ namespace Cryptocurrencies
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ICryptocurrenciesService _cryptocurrenciesService;
+        public MainWindow(ICryptocurrenciesService cryptocurrenciesService)
         {
+            _cryptocurrenciesService = cryptocurrenciesService;
             InitializeComponent();
+            DataContext = _cryptocurrenciesService.GetTopNCryptocurrencies(10).GetAwaiter().GetResult();
         }
     }
 }

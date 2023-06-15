@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Cryptocurrencies.Components.GridCryptocurrencyInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cryptocurrencies.Components"
+             xmlns:viewModels="clr-namespace:Cryptocurrencies.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Style x:Key="Margin">
+            <Setter Property="Control.Margin" Value="0 20" />
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Control.Background" Value="#e0ffde" />
+            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.BorderBrush" Value="LightGray" />
+            <Setter Property="Control.BorderThickness" Value="0.5 0.5 0.5 0.5" />
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </UserControl.Resources>
+    <Border Style="{StaticResource Margin}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DataGrid AutoGenerateColumns="False" 
+                      IsReadOnly="True" 
+                      ItemsSource="{Binding RowCryptocurrencyInfoViewModels}" 
+                      SelectionMode="Single" SelectionUnit ="FullRow"       
+                      MouseLeftButtonUp="DataGrid_CellClicked"
+                      AlternatingRowBackground="#e0ffde"
+                      HeadersVisibility="Column" 
+                      HorizontalGridLinesBrush="LightGray" 
+                      VerticalGridLinesBrush="LightGray">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" Width="*" />
+                    <DataGridTextColumn Header="Symbol" Binding="{Binding Symbol}" Width="*" />
+                    <DataGridTextColumn Header="Supply" Binding="{Binding Supply}" Width="*" />
+                    <DataGridTextColumn Header="Price USD" Binding="{Binding PriceUsd}" Width="2*" />
+                    <DataGridTextColumn Header="Market Cap USD" Binding="{Binding MarketCapUsd}" Width="2*" />
+                    <DataGridTextColumn Header="Volume USD (24 Hr)" Binding="{Binding VolumeUsd24Hr}" Width="3*" />
+                    <DataGridTextColumn Header="VWAP (24 Hr)" Binding="{Binding VWAP24Hr}" Width="2*" />
+                    <DataGridTextColumn Header="Change Percent (24 Hr)" Binding="{Binding ChangePercent24Hr}" Width="3*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</UserControl>
