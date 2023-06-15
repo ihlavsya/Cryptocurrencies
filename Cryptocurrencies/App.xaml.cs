@@ -22,14 +22,18 @@ namespace Cryptocurrencies
         HttpCryptocurrenciesProvider _httpCryptocurrenciesProvider;
         public App()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency>());
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency>();
+                cfg.CreateMap<ShortCryptocurrency, RowCryptocurrencyInfoViewModel>();
+            });
             _mapper = new Mapper(config);
             _httpCryptocurrenciesProvider = new HttpCryptocurrenciesProvider();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
             ICryptocurrenciesService cryptocurrenciesService = new CryptocurrenciesService(_httpCryptocurrenciesProvider, _mapper);
-            MainWindow = new MainWindow(cryptocurrenciesService);
+            MainWindow = new MainWindow(cryptocurrenciesService, _mapper);
             MainWindow.Show();
             base.OnStartup(e);
         }

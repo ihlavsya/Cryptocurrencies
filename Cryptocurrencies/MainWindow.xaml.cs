@@ -1,8 +1,11 @@
-﻿using Cryptocurrencies.API.Cryptocurrencies;
+﻿using AutoMapper;
+using Cryptocurrencies.API.Cryptocurrencies;
 using Cryptocurrencies.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +26,11 @@ namespace Cryptocurrencies
     public partial class MainWindow : Window
     {
         private readonly ICryptocurrenciesService _cryptocurrenciesService;
-        public MainWindow(ICryptocurrenciesService cryptocurrenciesService)
+        private readonly IMapper _mapper;
+        public MainWindow(ICryptocurrenciesService cryptocurrenciesService, IMapper mapper)
         {
             _cryptocurrenciesService = cryptocurrenciesService;
+            _mapper = mapper;
             InitializeComponent();
             LoadData();
         }
@@ -34,9 +39,7 @@ namespace Cryptocurrencies
         {
             var cryptocurrencies = await _cryptocurrenciesService.GetTopNCryptocurrencies(10);
             CryptocurrenciesViewModel cryptocurrenciesViewModel = new CryptocurrenciesViewModel();
-            // here should be mapping between RowCryptocurrencyInfoViewModel
-            var a = cryptocurrencies.First();
-            cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels.Add(new RowCryptocurrencyInfoViewModel(a.Rank, a.Symbol, a.Supply, a.PriceUsd, a.MarketCapUsd, a.VolumeUsd24Hr, a.VWAP24Hr, a.ChangePercent24Hr));
+            cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels = _mapper.Map<ObservableCollection<RowCryptocurrencyInfoViewModel>>(cryptocurrencies);
             DataContext = cryptocurrenciesViewModel;
         }
     }
