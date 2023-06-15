@@ -27,7 +27,18 @@ namespace Cryptocurrencies
         {
             _cryptocurrenciesService = cryptocurrenciesService;
             InitializeComponent();
-            DataContext = _cryptocurrenciesService.GetTopNCryptocurrencies(10).GetAwaiter().GetResult();
+            LoadData();
+        }
+
+        private async Task LoadData()
+        {
+            var cryptocurrencies = await _cryptocurrenciesService.GetTopNCryptocurrencies(10);
+            CryptocurrenciesViewModel cryptocurrenciesViewModel = new CryptocurrenciesViewModel();
+            // here should be mapping between RowCryptocurrencyInfoViewModel
+            var a = cryptocurrencies.First();
+            cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels.Add(new RowCryptocurrencyInfoViewModel(a.Rank, a.Symbol, a.Supply, a.PriceUsd, a.MarketCapUsd, a.VolumeUsd24Hr, a.VWAP24Hr, a.ChangePercent24Hr));
+            DataContext = cryptocurrenciesViewModel;
         }
     }
 }
+    

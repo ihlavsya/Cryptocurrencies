@@ -19,15 +19,16 @@ namespace Cryptocurrencies
     public partial class App : Application
     {
         IMapper _mapper;
+        HttpCryptocurrenciesProvider _httpCryptocurrenciesProvider;
         public App()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency> ());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency>());
             _mapper = new Mapper(config);
+            _httpCryptocurrenciesProvider = new HttpCryptocurrenciesProvider();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            HttpCryptocurrenciesProvider httpCryptocurrenciesProvider = new HttpCryptocurrenciesProvider();
-            ICryptocurrenciesService cryptocurrenciesService = new CryptocurrenciesService(httpCryptocurrenciesProvider, _mapper);
+            ICryptocurrenciesService cryptocurrenciesService = new CryptocurrenciesService(_httpCryptocurrenciesProvider, _mapper);
             MainWindow = new MainWindow(cryptocurrenciesService);
             MainWindow.Show();
             base.OnStartup(e);
