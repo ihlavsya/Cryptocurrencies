@@ -24,8 +24,14 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Cryptocurrencies" Grid.Row="0" Style="{StaticResource BlackAndWhite}"/>
-            <Frame x:Name="Main" NavigationUIVisibility="Visible" Grid.Row="1" Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Cryptocurrencies" Grid.Row="0" Grid.Column="0" Style="{StaticResource BlackAndWhite}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="txtSearchBox" VerticalAlignment="Top" Width="224" Height="21" TextChanged="txtSearchBox_TextChanged" />
+            <Button Content="Search" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" />
+            <Frame x:Name="Main" Grid.ColumnSpan="2" NavigationUIVisibility="Visible" Grid.Row="1" Margin="0 10 0 0">
             </Frame>
 
         </Grid>

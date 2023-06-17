@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Cryptocurrencies.API.Cryptocurrencies
 {
     public class ShortCryptocurrency
     {
+        public string Id { get; init; }
         public int Rank { get; init; }
         public string Symbol { get; init; }
         public decimal Supply { get; init; }

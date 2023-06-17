@@ -9,6 +9,8 @@ namespace Cryptocurrencies.API.Models
 {
     public class ShortCryptocurrencyDTO
     {
+        [JsonProperty("id")]
+        public string Id { get; init; }
         [JsonProperty("rank")]
         public int Rank { get; init; }
 

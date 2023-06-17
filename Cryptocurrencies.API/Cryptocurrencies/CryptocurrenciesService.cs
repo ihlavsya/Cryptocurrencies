@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cryptocurrencies.API.Externals;
+using Cryptocurrencies.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,13 @@ namespace Cryptocurrencies.API.Cryptocurrencies
             var cryptocurrenciesDTO = await _cryptocurrenciesProvider.GetTopNCryptocurrencies(top);
             var cryptocurrencies = _mapper.Map<IEnumerable<ShortCryptocurrency>>(cryptocurrenciesDTO);
             return cryptocurrencies;
+        }
+
+        public async Task<ShortCryptocurrency> GetCryptocurrencyById(string id)
+        {
+            var cryptocurrencyDTO = await _cryptocurrenciesProvider.GetCryptocurrencyById(id);  
+            var cryptocurrency = _mapper.Map<ShortCryptocurrency>(cryptocurrencyDTO);
+            return cryptocurrency;
         }
     }
 }

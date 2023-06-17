@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cryptocurrencies.API.Cryptocurrencies;
+using Cryptocurrencies.API.Exceptions;
 using Cryptocurrencies.Pages;
 using Cryptocurrencies.ViewModels;
 using System;
@@ -44,6 +45,40 @@ namespace Cryptocurrencies
             cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels = _mapper.Map<ObservableCollection<RowCryptocurrencyInfoViewModel>>(cryptocurrencies);
             DataContext = cryptocurrenciesViewModel;
         }
+
+        private void txtSearchBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var textbox = txtSearchBox;
+            if (textbox != null)
+            {
+                string searchstr = textbox.Text;
+                if (!string.IsNullOrEmpty(searchstr))
+                {
+                    CryptocurrenciesViewModel cryptocurrenciesViewModel = new CryptocurrenciesViewModel();
+                    try
+                    {
+                        var data = await _cryptocurrenciesService.GetCryptocurrencyById(searchstr);
+                        var dataList = new ObservableCollection<RowCryptocurrencyInfoViewModel>();
+                        var row = _mapper.Map<RowCryptocurrencyInfoViewModel>(data);
+                        dataList.Add(row);
+                        cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels = dataList;
+                    }
+                    catch (DataNotFoundException ex)
+                    {
+                    }
+                    finally
+                    {
+                        DataContext = cryptocurrenciesViewModel;
+                    }
+                }
+            }
+        }
+
     }
 }
     

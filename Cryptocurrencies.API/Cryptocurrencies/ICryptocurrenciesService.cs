@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cryptocurrencies.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace Cryptocurrencies.API.Cryptocurrencies
     public interface ICryptocurrenciesService
     {
         Task<IEnumerable<ShortCryptocurrency>> GetTopNCryptocurrencies(int top);
+        Task<ShortCryptocurrency> GetCryptocurrencyById(string id);
     }
 }

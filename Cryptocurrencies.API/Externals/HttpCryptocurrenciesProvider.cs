@@ -47,6 +47,12 @@ namespace Cryptocurrencies.API.Externals
             return json;
         }
 
+        private async Task<string> GetCryptocurrencyByIdJSON(string id)
+        {
+            string json = await GetResponseUrl($"assets/{id}");
+            return json;
+        }
+
         private JToken ParseResults(JObject json)
         {
             var results = json["data"]!;
@@ -60,6 +66,15 @@ namespace Cryptocurrencies.API.Externals
             var jCryptocurrencies = ParseResults(jsonCryptocurrencies);
             var cryptocurrenciesDTO = JsonConvert.DeserializeObject<IEnumerable<ShortCryptocurrencyDTO>>(jCryptocurrencies.ToString());
             return cryptocurrenciesDTO!;
+        }
+
+        public async Task<ShortCryptocurrencyDTO> GetCryptocurrencyById(string id)
+        {
+            var json = await GetCryptocurrencyByIdJSON(id);
+            var jsonCryptocurrency = JObject.Parse(json);
+            var jCryptocurrency = ParseResults(jsonCryptocurrency);
+            var cryptocurrencyDTO = JsonConvert.DeserializeObject<ShortCryptocurrencyDTO>(jCryptocurrency.ToString());
+            return cryptocurrencyDTO!;
         }
     }
 }

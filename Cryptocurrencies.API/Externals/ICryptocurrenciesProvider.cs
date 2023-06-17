@@ -11,5 +11,6 @@ namespace Cryptocurrencies.API.Externals
     public interface ICryptocurrenciesProvider
     {
         Task<IEnumerable<ShortCryptocurrencyDTO>> GetTopNCryptocurrencies(int top);
+        Task<ShortCryptocurrencyDTO> GetCryptocurrencyById(string id);
     }
 }
