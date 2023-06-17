@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Cryptocurrencies.Components"
              xmlns:viewModels="clr-namespace:Cryptocurrencies.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="900">
+             d:DesignHeight="450" d:DesignWidth="1100">
     <UserControl.Resources>
         <Style x:Key="Margin">
             <Setter Property="Control.Margin" Value="0 20" />
@@ -29,6 +29,13 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGridRow}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.7" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type DataGrid}">
             <Setter Property="Control.Background" Value="White" />
@@ -54,12 +61,12 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" Width="*" />
                     <DataGridTextColumn Header="Symbol" Binding="{Binding Symbol}" Width="*" />
-                    <DataGridTextColumn Header="Supply" Binding="{Binding Supply}" Width="*" />
-                    <DataGridTextColumn Header="Price USD" Binding="{Binding PriceUsd}" Width="2*" />
-                    <DataGridTextColumn Header="Market Cap USD" Binding="{Binding MarketCapUsd}" Width="2*" />
-                    <DataGridTextColumn Header="Volume USD (24 Hr)" Binding="{Binding VolumeUsd24Hr}" Width="3*" />
-                    <DataGridTextColumn Header="VWAP (24 Hr)" Binding="{Binding VWAP24Hr}" Width="2*" />
-                    <DataGridTextColumn Header="Change Percent (24 Hr)" Binding="{Binding ChangePercent24Hr}" Width="3*" />
+                    <DataGridTextColumn Header="Supply" Binding="{Binding Supply, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="Price USD" Binding="{Binding PriceUsd, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="Market Cap USD" Binding="{Binding MarketCapUsd, StringFormat=N2}" Width="3*" />
+                    <DataGridTextColumn Header="Volume USD (24 Hr)" Binding="{Binding VolumeUsd24Hr, StringFormat=N2}" Width="3*" />
+                    <DataGridTextColumn Header="VWAP (24 Hr)" Binding="{Binding VWAP24Hr, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="Change Percent (24 Hr)" Binding="{Binding ChangePercent24Hr, StringFormat=N2}" Width="3*" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Cryptocurrencies.API\Cryptocurrencies.API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+
 </Project>

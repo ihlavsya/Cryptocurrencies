@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,11 +42,12 @@ namespace Cryptocurrencies.Components
             var rowView = grd.SelectedItem as RowCryptocurrencyInfoViewModel;
             if (rowView != null)
             {
-                Cryptocurrency cryptocurrencyWindow = new Cryptocurrency(rowView)
+                CryptocurrencyPage cryptocurrencyPage = new CryptocurrencyPage(rowView)
                 {
                     DataContext = rowView
                 };
-                cryptocurrencyWindow.ShowDialog();
+                NavigationService ns = NavigationService.GetNavigationService(this);
+                ns.Navigate(cryptocurrencyPage); 
             }
         }
     }

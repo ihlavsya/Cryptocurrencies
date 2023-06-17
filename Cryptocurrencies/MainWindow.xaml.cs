@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cryptocurrencies.API.Cryptocurrencies;
+using Cryptocurrencies.Pages;
 using Cryptocurrencies.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace Cryptocurrencies
             _cryptocurrenciesService = cryptocurrenciesService;
             _mapper = mapper;
             InitializeComponent();
+            Main.Content = new MainPage();
             LoadData();
         }
 

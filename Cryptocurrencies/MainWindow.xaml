@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptocurrencies"
         xmlns:components="clr-namespace:Cryptocurrencies.Components"
+        xmlns:pages="clr-namespace:Cryptocurrencies.Pages"
         mc:Ignorable="d"
         FontSize="14"
-        Title="Cryptocurrencies" Height="450" Width="935"
+        Title="Cryptocurrencies" Height="450" Width="1100"
         FontFamily="Verdana">
     <Window.Resources>
         <Style x:Key="MainMargin">
@@ -23,10 +24,9 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <TextBlock Text="Cryptocurrencies" Style="{StaticResource BlackAndWhite}"/>
-
-            <components:GridCryptocurrencyInfo Grid.Row="1"/>
+            <TextBlock Text="Cryptocurrencies" Grid.Row="0" Style="{StaticResource BlackAndWhite}"/>
+            <Frame x:Name="Main" NavigationUIVisibility="Visible" Grid.Row="1" Margin="0 10 0 0">
+            </Frame>
 
         </Grid>
     </Border>

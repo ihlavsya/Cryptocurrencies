@@ -1,7 +1,5 @@
-﻿using Cryptocurrencies.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cryptocurrencies.Views
+namespace Cryptocurrencies.Pages
 {
     /// <summary>
-    /// Interaction logic for Cryptocurrency.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class Cryptocurrency : Window
+    public partial class MainPage : Page
     {
-        public Cryptocurrency(RowCryptocurrencyInfoViewModel rowCryptocurrencyInfoViewModel)
+        public MainPage()
         {
             InitializeComponent();
         }
