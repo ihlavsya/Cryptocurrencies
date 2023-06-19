@@ -4,25 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Cryptocurrencies.Pages"
+             xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
              mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource Text}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Rank"></TextBlock>
+            <TextBlock Text="{hm:Lang Rank}"></TextBlock>
             <TextBlock Text="{Binding Rank}"></TextBlock>
-            <TextBlock Text="Symbol"></TextBlock>
+            <TextBlock Text="{hm:Lang Symbol}"></TextBlock>
             <TextBlock Text="{Binding Symbol}"></TextBlock>
-            <TextBlock Text="Supply"></TextBlock>
+            <TextBlock Text="{hm:Lang Supply}"></TextBlock>
             <TextBlock Text="{Binding Supply}"></TextBlock>
-            <TextBlock Text="Price USD"></TextBlock>
+            <TextBlock Text="{hm:Lang PriceUsd}"></TextBlock>
             <TextBlock Text="{Binding PriceUsd}"></TextBlock>
-            <TextBlock Text="Market Cap USD"></TextBlock>
+            <TextBlock Text="{hm:Lang MarketCapUsd}"></TextBlock>
             <TextBlock Text="{Binding MarketCapUsd}"></TextBlock>
-            <TextBlock Text="Volume USD (24 Hr)"></TextBlock>
+            <TextBlock Text="{hm:Lang VolumeUsd24Hr}"></TextBlock>
             <TextBlock Text="{Binding VolumeUsd24Hr}"></TextBlock>
-            <TextBlock Text="VWAP (24 Hr)"></TextBlock>
+            <TextBlock Text="{hm:Lang VWAP24Hr}"></TextBlock>
             <TextBlock Text="{Binding VWAP24Hr}"></TextBlock>
-            <TextBlock Text="Change Percent (24 Hr)"></TextBlock>
+            <TextBlock Text="{hm:Lang ChangePercent24Hr}"></TextBlock>
             <TextBlock Text="{Binding ChangePercent24Hr}"></TextBlock>
         </StackPanel>
     </Grid>

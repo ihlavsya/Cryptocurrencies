@@ -9,14 +9,35 @@
         xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
         mc:Ignorable="d"
         FontSize="14"
+        Icon="images/icon.ico"
+        Background="{DynamicResource Background}"
+        TextElement.Foreground="{DynamicResource Text}"
         Title="{hm:Lang Title}" Height="450" Width="1100"
         FontFamily="Verdana">
     <Window.Resources>
         <Style x:Key="MainMargin">
             <Setter Property="Control.Margin" Value="30" />
         </Style>
-        <Style x:Key="BlackAndWhite">
+        <Style x:Key="TitleSize">
             <Setter Property="Control.FontSize" Value="20" />
+        </Style>
+        <Style x:Key="Btn" TargetType="Button">
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+            <Setter Property="Background" Value="{DynamicResource Green}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="LightGray" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <Border Style="{StaticResource MainMargin}">
@@ -30,12 +51,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{hm:Lang Title}" Grid.Row="0" Grid.Column="0" Style="{StaticResource BlackAndWhite}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="txtSearchBox" VerticalAlignment="Top" Width="224" Height="21" TextChanged="txtSearchBox_TextChanged" />
-            <Button Content="{hm:Lang Search}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" />
+            <TextBlock Text="{hm:Lang Title}" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleSize}"/>
+            <TextBox BorderBrush="LightGray" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="txtSearchBox" VerticalAlignment="Top" Width="224" Height="21" TextChanged="txtSearchBox_TextChanged" Background="{DynamicResource Background}" Foreground="{DynamicResource Text}"/>
+            <Button Content="{hm:Lang Search}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" Style="{DynamicResource Btn}"/>
             <Frame x:Name="Main" Grid.ColumnSpan="2" NavigationUIVisibility="Visible" Grid.Row="1" Margin="0 10 0 0">
             </Frame>
-            <Button x:Name="languageBtn" Content="{hm:Lang Language}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Click="languageBtn_Click">
+            <Button x:Name="themeBtn" Content="{hm:Lang ThemeChange}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Click="themeBtn_Click" Style="{DynamicResource Btn}">
+            </Button>
+            <Button x:Name="languageBtn" Content="{hm:Lang Language}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Click="languageBtn_Click" Style="{DynamicResource Btn}">
             </Button>
         </Grid>
     </Border>

@@ -141,6 +141,9 @@
   <data name="Symbol" xml:space="preserve">
     <value>Symbol</value>
   </data>
+  <data name="ThemeChange" xml:space="preserve">
+    <value>Change theme</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Cryptocurrencies</value>
   </data>

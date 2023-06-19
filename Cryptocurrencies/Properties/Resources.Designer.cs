@@ -133,6 +133,15 @@ namespace Cryptocurrencies.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change theme.
+        /// </summary>
+        internal static string ThemeChange {
+            get {
+                return ResourceManager.GetString("ThemeChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cryptocurrencies.
         /// </summary>
         internal static string Title {

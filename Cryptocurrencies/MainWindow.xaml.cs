@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -62,6 +63,21 @@ namespace Cryptocurrencies
             else
             {
                 App.ChangeCulture("en");
+            }
+        }
+
+        private void themeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var darkUri = new Uri("Themes/dark.xaml", UriKind.Relative);
+            var lightUri = new Uri("Themes/light.xaml", UriKind.Relative);
+            var currentTheme = App.Current?.Resources?.MergedDictionaries?.LastOrDefault()?.Source;
+            if (currentTheme?.ToString() == darkUri.ToString())
+            {
+                AppTheme.ChangeTheme(lightUri);
+            }
+            else
+            {
+                AppTheme.ChangeTheme(darkUri);
             }
         }
 

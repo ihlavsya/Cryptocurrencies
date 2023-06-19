@@ -13,14 +13,15 @@
             <Setter Property="Control.Margin" Value="0 20" />
         </Style>
         <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Control.Background" Value="#e0ffde" />
-            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.Background" Value="{DynamicResource Green}" />
+            <Setter Property="Control.Foreground" Value="{DynamicResource Text}" />
             <Setter Property="Control.BorderBrush" Value="LightGray" />
             <Setter Property="Control.BorderThickness" Value="0.5 0.5 0.5 0.5" />
             <Setter Property="Control.HorizontalContentAlignment" Value="Center" />
         </Style>
         <Style TargetType="{x:Type DataGridCell}">
             <Setter Property="Control.FontSize" Value="12" />
+            <Setter Property="Control.Foreground" Value="{DynamicResource Text}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -39,8 +40,9 @@
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type DataGrid}">
-            <Setter Property="Control.Background" Value="White" />
+            <Setter Property="Control.Background" Value="{DynamicResource Background}" />
             <Setter Property="Control.BorderThickness" Value="0" />
+            <Setter Property="RowBackground" Value="{DynamicResource Background}"/>
         </Style>
     </UserControl.Resources>
     <Border Style="{StaticResource Margin}">
@@ -54,8 +56,8 @@
                       ItemsSource="{Binding RowCryptocurrencyInfoViewModels}" 
                       SelectionMode="Single" SelectionUnit ="FullRow"       
                       MouseLeftButtonUp="DataGrid_CellClicked"
-                      AlternatingRowBackground="#e0ffde"
                       HeadersVisibility="Column" 
+                      AlternatingRowBackground="{DynamicResource Green}"
                       HorizontalGridLinesBrush="LightGray" 
                       VerticalGridLinesBrush="LightGray">
 

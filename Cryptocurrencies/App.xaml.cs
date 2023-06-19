@@ -25,6 +25,8 @@ namespace Cryptocurrencies
         {
             LangUtils.Register();
             ChangeCulture("uk-UA");
+            var lightUri = new Uri("Themes/light.xaml", UriKind.Relative);
+            AppTheme.ChangeTheme(lightUri);
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency>();
