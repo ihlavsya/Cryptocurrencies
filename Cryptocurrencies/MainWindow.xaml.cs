@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,6 +52,19 @@ namespace Cryptocurrencies
 
         }
 
+        private void languageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var neutralCulture = Thread.CurrentThread.CurrentCulture.Parent.Name;
+            if (neutralCulture.Equals("en", StringComparison.OrdinalIgnoreCase))
+            {
+                App.ChangeCulture("uk-UA");
+            }
+            else
+            {
+                App.ChangeCulture("en");
+            }
+        }
+
         private async void searchBtn_Click(object sender, RoutedEventArgs e)
         {
             var textbox = txtSearchBox;
@@ -78,6 +92,5 @@ namespace Cryptocurrencies
                 }
             }
         }
-
     }
 }

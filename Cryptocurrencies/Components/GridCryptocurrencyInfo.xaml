@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Cryptocurrencies.Components"
              xmlns:viewModels="clr-namespace:Cryptocurrencies.ViewModels"
-             xmlns:p="clr-namespace:Cryptocurrencies.Properties"
+             xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1100">
     <UserControl.Resources>
@@ -60,14 +60,14 @@
                       VerticalGridLinesBrush="LightGray">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static p:Resources.Rank}" Binding="{Binding Rank}" Width="*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.Symbol}" Binding="{Binding Symbol}" Width="*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.Supply}" Binding="{Binding Supply, StringFormat=N2}" Width="2*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.PriceUsd}" Binding="{Binding PriceUsd, StringFormat=N2}" Width="2*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.MarketCapUsd}" Binding="{Binding MarketCapUsd, StringFormat=N2}" Width="3*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.VolumeUsd24Hr}" Binding="{Binding VolumeUsd24Hr, StringFormat=N2}" Width="3*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.VWAP24Hr}" Binding="{Binding VWAP24Hr, StringFormat=N2}" Width="2*" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.ChangePercent24Hr}" Binding="{Binding ChangePercent24Hr, StringFormat=N2}" Width="3*" />
+                    <DataGridTextColumn Header="{hm:Lang Rank}" Binding="{Binding Rank}" Width="*" />
+                    <DataGridTextColumn Header="{hm:Lang Symbol}" Binding="{Binding Symbol}" Width="*" />
+                    <DataGridTextColumn Header="{hm:Lang Supply}" Binding="{Binding Supply, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="{hm:Lang PriceUsd}" Binding="{Binding PriceUsd, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="{hm:Lang MarketCapUsd}" Binding="{Binding MarketCapUsd, StringFormat=N2}" Width="3*" />
+                    <DataGridTextColumn Header="{hm:Lang VolumeUsd24Hr}" Binding="{Binding VolumeUsd24Hr, StringFormat=N2}" Width="3*" />
+                    <DataGridTextColumn Header="{hm:Lang VWAP24Hr}" Binding="{Binding VWAP24Hr, StringFormat=N2}" Width="2*" />
+                    <DataGridTextColumn Header="{hm:Lang ChangePercent24Hr}" Binding="{Binding ChangePercent24Hr, StringFormat=N2}" Width="3*" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

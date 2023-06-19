@@ -22,7 +22,7 @@ namespace Cryptocurrencies.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Cryptocurrencies.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cryptocurrencies.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Cryptocurrencies.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,16 +63,25 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Change Percent (24 Hr).
         /// </summary>
-        public static string ChangePercent24Hr {
+        internal static string ChangePercent24Hr {
             get {
                 return ResourceManager.GetString("ChangePercent24Hr", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to українська.
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market Cap USD.
         /// </summary>
-        public static string MarketCapUsd {
+        internal static string MarketCapUsd {
             get {
                 return ResourceManager.GetString("MarketCapUsd", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Price USD.
         /// </summary>
-        public static string PriceUsd {
+        internal static string PriceUsd {
             get {
                 return ResourceManager.GetString("PriceUsd", resourceCulture);
             }
@@ -90,7 +99,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Rank.
         /// </summary>
-        public static string Rank {
+        internal static string Rank {
             get {
                 return ResourceManager.GetString("Rank", resourceCulture);
             }
@@ -99,7 +108,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
-        public static string Search {
+        internal static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
             }
@@ -108,7 +117,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Supply.
         /// </summary>
-        public static string Supply {
+        internal static string Supply {
             get {
                 return ResourceManager.GetString("Supply", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Symbol.
         /// </summary>
-        public static string Symbol {
+        internal static string Symbol {
             get {
                 return ResourceManager.GetString("Symbol", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cryptocurrencies.
         /// </summary>
-        public static string Title {
+        internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Volume USD (24 Hr).
         /// </summary>
-        public static string VolumeUsd24Hr {
+        internal static string VolumeUsd24Hr {
             get {
                 return ResourceManager.GetString("VolumeUsd24Hr", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace Cryptocurrencies.Properties {
         /// <summary>
         ///   Looks up a localized string similar to VWAP (24 Hr).
         /// </summary>
-        public static string VWAP24Hr {
+        internal static string VWAP24Hr {
             get {
                 return ResourceManager.GetString("VWAP24Hr", resourceCulture);
             }
