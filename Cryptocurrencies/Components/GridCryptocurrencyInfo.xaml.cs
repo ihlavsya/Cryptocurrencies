@@ -29,12 +29,6 @@ namespace Cryptocurrencies.Components
             InitializeComponent();
         }
 
-        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var a = e.GetPosition(this);
-            var b = 3;
-        }
-
         private void DataGrid_CellClicked(object sender, RoutedEventArgs e)
         {
             // Starts the Edit on the row;

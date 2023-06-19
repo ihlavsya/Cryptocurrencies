@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptocurrencies"
+        xmlns:p="clr-namespace:Cryptocurrencies.Properties"
         xmlns:components="clr-namespace:Cryptocurrencies.Components"
         xmlns:pages="clr-namespace:Cryptocurrencies.Pages"
         mc:Ignorable="d"
         FontSize="14"
-        Title="Cryptocurrencies" Height="450" Width="1100"
+        Title="{x:Static p:Resources.Title}" Height="450" Width="1100"
         FontFamily="Verdana">
     <Window.Resources>
         <Style x:Key="MainMargin">
@@ -23,6 +24,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -30,10 +32,9 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="Cryptocurrencies" Grid.Row="0" Grid.Column="0" Style="{StaticResource BlackAndWhite}"/>
             <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="txtSearchBox" VerticalAlignment="Top" Width="224" Height="21" TextChanged="txtSearchBox_TextChanged" />
-            <Button Content="Search" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" />
+            <Button Content="{x:Static p:Resources.Search}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" />
             <Frame x:Name="Main" Grid.ColumnSpan="2" NavigationUIVisibility="Visible" Grid.Row="1" Margin="0 10 0 0">
             </Frame>
-
         </Grid>
     </Border>
 </Window>

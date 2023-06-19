@@ -68,7 +68,7 @@ namespace Cryptocurrencies
                         dataList.Add(row);
                         cryptocurrenciesViewModel.RowCryptocurrencyInfoViewModels = dataList;
                     }
-                    catch (DataNotFoundException ex)
+                    catch (DataNotFoundException)
                     {
                     }
                     finally
@@ -81,4 +81,3 @@ namespace Cryptocurrencies
 
     }
 }
-    

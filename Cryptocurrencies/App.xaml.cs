@@ -22,6 +22,8 @@ namespace Cryptocurrencies
         HttpCryptocurrenciesProvider _httpCryptocurrenciesProvider;
         public App()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture =
+            new System.Globalization.CultureInfo("uk-UA");
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ShortCryptocurrencyDTO, ShortCryptocurrency>();
