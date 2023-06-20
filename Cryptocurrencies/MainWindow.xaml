@@ -21,17 +21,15 @@
         <Style x:Key="TitleSize">
             <Setter Property="Control.FontSize" Value="20" />
         </Style>
-        <Style x:Key="Btn" TargetType="Button">
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="{DynamicResource Text}"/>
             <Setter Property="Background" Value="{DynamicResource Green}"/>
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="LightGray" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{DynamicResource Green}" BorderThickness="3">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -58,18 +56,17 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="{hm:Lang Title}" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleSize}"/>
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource Green}">
-                <Button Name="ForwardBtn" Click="ForwardBtn_Click" Background="Transparent" BorderBrush="Transparent" Content="&lt;" FontSize="20" VerticalContentAlignment="Center">
-                </Button>
-                <Button Name="BackBtn" Click="BackBtn_Click" Background="Transparent" BorderBrush="Transparent" Content="&gt;" FontSize="20" VerticalContentAlignment="Center">
+                <Button Name="ForwardBtn" Click="ForwardBtn_Click" Content="&lt;"/>
+                <Button Name="BackBtn" Click="BackBtn_Click" Content="&gt;">
                 </Button>
             </StackPanel>
             <TextBox BorderBrush="LightGray" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="txtSearchBox" VerticalAlignment="Top" Width="224" Height="21" TextChanged="txtSearchBox_TextChanged" Background="{DynamicResource Background}" Foreground="{DynamicResource Text}"/>
-            <Button Content="{hm:Lang Search}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" Style="{DynamicResource Btn}"/>
+            <Button Content="{hm:Lang Search}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Name="searchBtn" VerticalAlignment="Top" Height="21" Click="searchBtn_Click" FontSize="13"/>
             <Frame x:Name="Main" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" Grid.Row="2">
             </Frame>
-            <Button x:Name="themeBtn" Content="{hm:Lang ThemeChange}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Click="themeBtn_Click" Style="{DynamicResource Btn}">
+            <Button x:Name="themeBtn" Content="{hm:Lang ThemeChange}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Click="themeBtn_Click">
             </Button>
-            <Button x:Name="languageBtn" Content="{hm:Lang Language}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Click="languageBtn_Click" Style="{DynamicResource Btn}">
+            <Button x:Name="languageBtn" Content="{hm:Lang Language}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Click="languageBtn_Click">
             </Button>
         </Grid>
     </Border>
